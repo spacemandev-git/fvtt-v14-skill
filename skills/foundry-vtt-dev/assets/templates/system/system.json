@@ -1,0 +1,42 @@
+{
+  "id": "__ID__",
+  "title": "__TITLE__",
+  "description": "<p>A starter game system built on TypeDataModels and ApplicationV2 sheets.</p>",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "authors": [
+    { "name": "__AUTHOR__" }
+  ],
+  "esmodules": ["module/__ID__.mjs"],
+  "styles": [
+    { "src": "styles/__ID__.css", "layer": "system" }
+  ],
+  "languages": [
+    { "lang": "en", "name": "English", "path": "lang/en.json" }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "character": { "htmlFields": ["biography"] },
+      "npc": { "htmlFields": ["biography"] }
+    },
+    "Item": {
+      "item": { "htmlFields": ["description"] },
+      "feature": { "htmlFields": ["description"] }
+    }
+  },
+  "flags": {
+    "hotReload": {
+      "extensions": ["css", "hbs", "json"],
+      "paths": ["styles", "templates", "lang"]
+    }
+  },
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
+  "primaryTokenAttribute": "hp",
+  "initiative": "1d20 + @abilities.agility.mod"
+}

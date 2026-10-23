@@ -1,0 +1,4 @@
+.legacy-war .sheet-header { display: flex; gap: 8px; }
+.legacy-war .resources { display: flex; gap: 6px; align-items: center; }
+.legacy-war .item-list .item { align-items: center; gap: 6px; }
+.lw-star { color: darkred; }

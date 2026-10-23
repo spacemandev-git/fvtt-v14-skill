@@ -1,0 +1,6 @@
+<section class="tab biography {{tab.cssClass}}" data-group="{{tab.group}}" data-tab="{{tab.id}}">
+    {{!-- HTMLField -> <prose-mirror>. `value` is the raw HTML that gets edited, `enriched` is what is displayed
+          while the editor is closed (toggled=true shows an edit button instead of an always-open editor). --}}
+    {{formInput systemFields.biography value=source.system.biography enriched=enrichedBiography toggled=true
+        aria=(object label=systemFields.biography.label)}}
+</section>

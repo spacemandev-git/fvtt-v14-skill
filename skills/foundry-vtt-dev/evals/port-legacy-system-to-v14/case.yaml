@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: port-legacy-system-to-v14
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  ./legacy-war is ported in place: modern manifest (id, compatibility, authors, documentTypes), TypeDataModels that keep
+  the exact original field names, ApplicationV2 sheets (HandlebarsApplicationMixin(ActorSheetV2/ItemSheetV2)) with
+  actions replacing the jQuery listeners, DialogV2 for delete confirmation, async rolls, renderChatMessageHTML, and
+  namespaced APIs (foundry.utils, foundry.applications.handlebars, DocumentSheetConfig). It lints clean, boots on v14,
+  every sheet renders without errors or deprecation warnings, and the missile/star/item actions work.

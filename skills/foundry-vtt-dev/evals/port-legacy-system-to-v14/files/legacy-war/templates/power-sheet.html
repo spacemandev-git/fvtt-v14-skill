@@ -1,0 +1,8 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img src="{{item.img}}" data-edit="img" height="64" width="64"/>
+    <input name="name" type="text" value="{{item.name}}"/>
+  </header>
+  <div class="form-group"><label>{{localize "LW.Uses"}}</label><input name="data.uses" type="number" value="{{data.uses}}" data-dtype="Number"/></div>
+  <textarea name="data.description">{{data.description}}</textarea>
+</form>

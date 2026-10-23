@@ -1,0 +1,118 @@
+{
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "NPC"
+    },
+    "Item": {
+      "item": "Item",
+      "feature": "Feature"
+    },
+    "HINTS": {
+      "Actor": {
+        "character": "A player character.",
+        "npc": "A non-player character or monster."
+      },
+      "Item": {
+        "item": "Gear that can be carried.",
+        "feature": "A trait granted by an ancestry, class or other source."
+      }
+    }
+  },
+  "__PREFIX__": {
+    "Ability": {
+      "might": { "label": "Might", "abbr": "MGT" },
+      "agility": { "label": "Agility", "abbr": "AGI" },
+      "wits": { "label": "Wits", "abbr": "WIT" }
+    },
+    "Feature": {
+      "Category": {
+        "general": "General",
+        "ancestry": "Ancestry",
+        "class": "Class"
+      }
+    },
+    "Actor": {
+      "base": {
+        "FIELDS": {
+          "biography": { "label": "Biography" },
+          "hp": {
+            "label": "Hit Points",
+            "value": { "label": "Current Hit Points" },
+            "max": { "label": "Maximum Hit Points" }
+          },
+          "abilities": {
+            "label": "Abilities",
+            "might": { "label": "Might", "value": { "label": "Might Score" } },
+            "agility": { "label": "Agility", "value": { "label": "Agility Score" } },
+            "wits": { "label": "Wits", "value": { "label": "Wits Score" } }
+          }
+        }
+      },
+      "character": {
+        "FIELDS": {
+          "level": { "label": "Level" }
+        }
+      },
+      "npc": {
+        "FIELDS": {
+          "challenge": { "label": "Challenge" }
+        }
+      }
+    },
+    "Item": {
+      "base": {
+        "FIELDS": {
+          "description": { "label": "Description" },
+          "formula": {
+            "label": "Roll Formula",
+            "hint": "A dice formula. Use @ paths to read the owner's data, for example 1d8 + @abilities.might.mod."
+          }
+        }
+      },
+      "item": {
+        "FIELDS": {
+          "quantity": { "label": "Quantity" },
+          "weight": { "label": "Weight" }
+        }
+      },
+      "feature": {
+        "FIELDS": {
+          "category": { "label": "Category" }
+        }
+      }
+    },
+    "Sheets": {
+      "Actor": "__TITLE__ Actor Sheet",
+      "Item": "__TITLE__ Item Sheet"
+    },
+    "Sheet": {
+      "Tabs": {
+        "stats": "Stats",
+        "items": "Items",
+        "biography": "Biography",
+        "description": "Description",
+        "details": "Details"
+      },
+      "Group": {
+        "item": "Gear",
+        "feature": "Features"
+      },
+      "Create": "Add",
+      "NoItems": "Nothing here yet. Add one, or drag an Item onto this sheet.",
+      "DeleteItem": "Delete Item",
+      "RollAbility": "Roll Ability Check",
+      "RollItem": "Roll",
+      "Proficiency": "Proficiency",
+      "XP": "Experience",
+      "TotalWeight": "Total Weight"
+    },
+    "Roll": {
+      "AbilityCheck": "{ability} Check"
+    },
+    "Warning": {
+      "NoFormula": "{name} has no roll formula.",
+      "InvalidFormula": "{name} has an invalid roll formula: {formula}"
+    }
+  }
+}

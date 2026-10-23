@@ -1,0 +1,8 @@
+schema_version: "1.1"
+name: chat-roll-request-module
+expected_outcome: |
+  ./quick-checks is a v14 module (module.json with id, compatibility, esmodules, languages) that adds a GM-only control,
+  opens a DialogV2 (or ApplicationV2 form) for formula + label, creates a chat message with a Roll button, wires the
+  button through renderChatMessageHTML (HTMLElement, no jQuery), rolls with the clicking user's character
+  getRollData() via await roll.evaluate()/toMessage, and exposes game.modules.get("quick-checks").api.requestCheck.
+  It lints clean and works in a running world with errors-free activation.

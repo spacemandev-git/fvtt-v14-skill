@@ -1,0 +1,29 @@
+<section class="tab stats {{tab.cssClass}}" data-group="{{tab.group}}" data-tab="{{tab.id}}">
+    <fieldset class="abilities">
+        <legend>{{systemFields.abilities.label}}</legend>
+        <div class="ability-grid">
+            {{#each abilities as |ability|}}
+            <div class="ability">
+                <label for="{{@root.rootId}}-{{ability.key}}">{{localize ability.label}}</label>
+                {{formInput ability.field value=ability.value id=(concat @root.rootId "-" ability.key)}}
+                {{!-- data-action="rollAbility" is routed to SystemActorSheet.#onRollAbility --}}
+                <button type="button" class="roll" data-action="rollAbility" data-ability="{{ability.key}}"
+                        data-tooltip="__PREFIX__.Sheet.RollAbility">
+                    <i class="fa-solid fa-dice-d20" inert></i>
+                    <span>{{numberFormat ability.mod sign=true}}</span>
+                </button>
+            </div>
+            {{/each}}
+        </div>
+    </fieldset>
+
+    {{!-- Derived values are plain properties assigned in prepareDerivedData(), so they are never form inputs. --}}
+    <dl class="derived">
+        {{#if systemFields.level}}
+        <div><dt>{{localize "__PREFIX__.Sheet.Proficiency"}}</dt><dd>{{numberFormat system.proficiency sign=true}}</dd></div>
+        {{/if}}
+        {{#if systemFields.challenge}}
+        <div><dt>{{localize "__PREFIX__.Sheet.XP"}}</dt><dd>{{system.xp}}</dd></div>
+        {{/if}}
+    </dl>
+</section>

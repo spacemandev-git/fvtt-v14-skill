@@ -1,0 +1,48 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+      <input name="data.motto" type="text" value="{{data.motto}}" placeholder="{{localize 'LW.Motto'}}"/>
+      <div class="resources">
+        <label>{{localize "LW.Missiles"}}</label>
+        <a class="missile-remove"><i class="fas fa-minus"></i></a>
+        <span class="missiles">{{data.missiles}}</span>
+        <a class="missile-add"><i class="fas fa-plus"></i></a>
+        <label>{{localize "LW.Stars"}}</label>
+        <input name="data.stars" type="number" value="{{data.stars}}" data-dtype="Number"/>
+        <a class="earn-star"><i class="fas fa-star"></i> {{localize "LW.EarnStar"}}</a>
+        <label><input type="checkbox" name="data.isEliminated" {{checked data.isEliminated}}/> {{localize "LW.Eliminated"}}</label>
+      </div>
+    </div>
+  </header>
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="territories">{{localize "LW.Territories"}}</a>
+    <a class="item" data-tab="powers">{{localize "LW.Powers"}}</a>
+  </nav>
+  <section class="sheet-body">
+    <div class="tab territories" data-group="primary" data-tab="territories">
+      <p>{{localize "LW.TotalValue"}}: {{totalValue}}</p>
+      <ol class="item-list">
+        {{#each territories as |item id|}}
+          {{> "systems/legacy-war/templates/parts/territory-row.html" item=item}}
+        {{/each}}
+      </ol>
+      <a class="item-create" data-type="territory"><i class="fas fa-plus"></i> {{localize "LW.AddTerritory"}}</a>
+    </div>
+    <div class="tab powers" data-group="primary" data-tab="powers">
+      <ol class="item-list">
+        {{#each powers as |item id|}}
+        <li class="item flexrow" data-item-id="{{item._id}}">
+          <img src="{{item.img}}" width="24" height="24"/>
+          <h4>{{item.name}}</h4>
+          <span>{{item.data.uses}}</span>
+          <a class="item-edit"><i class="fas fa-edit"></i></a>
+          <a class="item-delete"><i class="fas fa-trash"></i></a>
+        </li>
+        {{/each}}
+      </ol>
+      <a class="item-create" data-type="power"><i class="fas fa-plus"></i> {{localize "LW.AddPower"}}</a>
+    </div>
+  </section>
+</form>

@@ -1,0 +1,20 @@
+<section class="tab items {{tab.cssClass}}" data-group="{{tab.group}}" data-tab="{{tab.id}}">
+    {{#each itemGroups as |group|}}
+    <fieldset class="item-group">
+        <legend>{{localize group.label}}</legend>
+        <ol class="item-list">
+            {{#each group.items as |item|}}
+            {{> "systems/__ID__/templates/actor/item-row.hbs" item=item editable=@root.editable}}
+            {{else}}
+            <li class="empty">{{localize "__PREFIX__.Sheet.NoItems"}}</li>
+            {{/each}}
+        </ol>
+        {{#if @root.editable}}
+        <button type="button" class="create" data-action="createItem" data-type="{{group.type}}">
+            <i class="fa-solid fa-plus" inert></i>
+            <span>{{localize "__PREFIX__.Sheet.Create"}}</span>
+        </button>
+        {{/if}}
+    </fieldset>
+    {{/each}}
+</section>

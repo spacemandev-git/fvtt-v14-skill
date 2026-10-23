@@ -1,0 +1,22 @@
+{{!-- A partial: preloaded in the init hook and listed in the items part's `templates`. Include it with
+      {{> "systems/__ID__/templates/actor/item-row.hbs" item=item}}.
+      `draggable` + `data-item-id` are what ActorSheetV2's built-in drag and drop looks for. --}}
+<li class="item draggable" data-item-id="{{item.id}}">
+    <img class="item-img" src="{{item.img}}" alt="" loading="lazy">
+    <a class="item-name" data-action="editItem">{{item.name}}</a>
+    {{#if (eq item.type "item")}}
+    <span class="item-quantity" data-tooltip="__PREFIX__.Item.item.FIELDS.quantity.label">&times;{{item.system.quantity}}</span>
+    {{else}}
+    <span class="item-category">{{localize (lookup @root.featureCategories item.system.category)}}</span>
+    {{/if}}
+    <span class="item-controls">
+        {{#if item.system.formula}}
+        <button type="button" class="inline-control icon fa-solid fa-dice-d20" data-action="rollItem"
+                data-tooltip="__PREFIX__.Sheet.RollItem" aria-label="{{localize "__PREFIX__.Sheet.RollItem"}}"></button>
+        {{/if}}
+        {{#if editable}}
+        <button type="button" class="inline-control icon fa-solid fa-trash" data-action="deleteItem"
+                data-tooltip="__PREFIX__.Sheet.DeleteItem" aria-label="{{localize "__PREFIX__.Sheet.DeleteItem"}}"></button>
+        {{/if}}
+    </span>
+</li>

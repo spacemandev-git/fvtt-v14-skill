@@ -1,0 +1,20 @@
+<section class="tab details {{tab.cssClass}}" data-group="{{tab.group}}" data-tab="{{tab.id}}">
+    {{!-- formGroup = label + input + hint for one DataField. The label and hint come from the model's
+          LOCALIZATION_PREFIXES (see lang/en.json), so templates never hard-code field names.
+          rootId makes the <label for> point at the generated input id. --}}
+    {{formGroup systemFields.formula value=source.system.formula rootId=rootId}}
+
+    {{!-- Sub-type specific fields: absent fields are simply undefined, so branch on the field, not the type. --}}
+    {{#if systemFields.quantity}}
+    {{formGroup systemFields.quantity value=source.system.quantity rootId=rootId}}
+    {{formGroup systemFields.weight value=source.system.weight rootId=rootId}}
+    <div class="form-group">
+        <label>{{localize "__PREFIX__.Sheet.TotalWeight"}}</label>
+        <div class="form-fields"><output>{{system.totalWeight}}</output></div>
+    </div>
+    {{/if}}
+    {{#if systemFields.category}}
+    {{!-- StringField with `choices` renders a <select>; localize=true localizes the option labels. --}}
+    {{formGroup systemFields.category value=source.system.category rootId=rootId localize=true}}
+    {{/if}}
+</section>

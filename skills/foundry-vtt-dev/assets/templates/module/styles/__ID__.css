@@ -1,0 +1,22 @@
+/*
+ * __TITLE__ styles.
+ *
+ * module.json loads this file with `"layer": "modules"`, which wraps it in `@import "..." layer(modules)`.
+ * Foundry's CSS layers run: reset, variables, elements, blocks, applications, compatibility, layouts, system, modules,
+ * exceptions. The `modules` layer wins over core and the game system without !important.
+ *
+ * Scope selectors to something unique to this module and use Foundry's theme variables, so light and dark
+ * themes both look right.
+ */
+
+/* The d20 badge added to chat messages by the renderChatMessageHTML hook in scripts/main.mjs. */
+.chat-message .__ID__-badge {
+  margin-inline-end: var(--spacer-4, 0.25rem);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-12, 0.75rem);
+}
+
+/* The settings menu application (classes: ["__ID__"]). */
+.application.__ID__ .hint {
+  color: var(--color-form-hint);
+}

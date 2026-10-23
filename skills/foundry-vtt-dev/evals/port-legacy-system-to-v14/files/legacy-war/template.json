@@ -1,0 +1,24 @@
+{
+  "Actor": {
+    "types": ["faction"],
+    "faction": {
+      "missiles": 0,
+      "stars": 0,
+      "isEliminated": false,
+      "motto": "",
+      "record": []
+    }
+  },
+  "Item": {
+    "types": ["territory", "power"],
+    "territory": {
+      "continent": "",
+      "value": 1,
+      "fortified": false
+    },
+    "power": {
+      "description": "",
+      "uses": 1
+    }
+  }
+}

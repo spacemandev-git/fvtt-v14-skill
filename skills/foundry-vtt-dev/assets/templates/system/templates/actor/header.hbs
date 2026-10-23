@@ -1,0 +1,42 @@
+{{!-- Header part. A part must render ONE root element. `source` holds the raw database values (use it for inputs),
+      `system` holds prepared values including derived data (use it for display), `systemFields` the DataFields. --}}
+<header class="sheet-header">
+    <img class="profile" src="{{source.img}}" alt="{{localize "DOCUMENT.FIELDS.img.label"}}"
+         data-action="editImage" data-edit="img" data-tooltip="DOCUMENT.FIELDS.img.label">
+    <div class="header-fields">
+        {{formInput fields.name value=source.name classes="document-name"
+            placeholder=(localize "DOCUMENT.FIELDS.name.label")
+            aria=(object label=(localize "DOCUMENT.FIELDS.name.label"))}}
+
+        <div class="resources">
+            <div class="resource hp">
+                <label for="{{rootId}}-hp-value">{{systemFields.hp.label}}</label>
+                <div class="form-fields">
+                    {{formInput systemFields.hp.fields.value value=source.system.hp.value id=(concat rootId "-hp-value")}}
+                    <span class="separator">/</span>
+                    {{formInput systemFields.hp.fields.max value=source.system.hp.max
+                        aria=(object label=systemFields.hp.fields.max.label)}}
+                </div>
+                <div class="hp-bar" style="--pct: {{system.hp.pct}}%"></div>
+            </div>
+
+            {{!-- Fields that only exist on some sub-types are simply absent from systemFields. --}}
+            {{#if systemFields.level}}
+            <div class="resource">
+                <label for="{{rootId}}-level">{{systemFields.level.label}}</label>
+                <div class="form-fields">
+                    {{formInput systemFields.level value=source.system.level id=(concat rootId "-level")}}
+                </div>
+            </div>
+            {{/if}}
+            {{#if systemFields.challenge}}
+            <div class="resource">
+                <label for="{{rootId}}-challenge">{{systemFields.challenge.label}}</label>
+                <div class="form-fields">
+                    {{formInput systemFields.challenge value=source.system.challenge id=(concat rootId "-challenge")}}
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</header>

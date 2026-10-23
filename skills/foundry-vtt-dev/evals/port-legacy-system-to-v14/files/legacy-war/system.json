@@ -1,0 +1,16 @@
+{
+  "name": "legacy-war",
+  "title": "Legacy War",
+  "description": "A territory-control game system.",
+  "version": "1.2.0",
+  "templateVersion": 2,
+  "author": "spacemandev",
+  "esmodules": ["legacy-war.js"],
+  "styles": ["styles/legacy-war.css"],
+  "languages": [{ "lang": "en", "name": "English", "path": "lang/en.json" }],
+  "minimumCoreVersion": "0.7.5",
+  "compatibleCoreVersion": "0.7.9",
+  "url": "https://github.com/example/legacy-war",
+  "manifest": "https://github.com/example/legacy-war/releases/latest/download/system.json",
+  "download": "https://github.com/example/legacy-war/releases/latest/download/system.zip"
+}

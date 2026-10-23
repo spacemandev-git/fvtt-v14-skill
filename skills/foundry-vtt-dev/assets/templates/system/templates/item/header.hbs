@@ -1,0 +1,18 @@
+<header class="sheet-header">
+    <img class="profile" src="{{source.img}}" alt="{{localize "DOCUMENT.FIELDS.img.label"}}"
+         data-action="editImage" data-edit="img" data-tooltip="DOCUMENT.FIELDS.img.label">
+    <div class="header-fields">
+        {{formInput fields.name value=source.name classes="document-name"
+            placeholder=(localize "DOCUMENT.FIELDS.name.label")
+            aria=(object label=(localize "DOCUMENT.FIELDS.name.label"))}}
+        <div class="resources">
+            <span class="type-label">{{localize typeLabel}}</span>
+            {{#if system.formula}}
+            <button type="button" class="roll" data-action="rollItem">
+                <i class="fa-solid fa-dice-d20" inert></i>
+                <span>{{localize "__PREFIX__.Sheet.RollItem"}}</span>
+            </button>
+            {{/if}}
+        </div>
+    </div>
+</header>

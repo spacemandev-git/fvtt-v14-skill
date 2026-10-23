@@ -1,0 +1,13 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Dependencies and build output
+node_modules/
+dist/
+*.log
+
+# Compendium LevelDB lock files (keep the packs themselves)
+packs/**/LOCK

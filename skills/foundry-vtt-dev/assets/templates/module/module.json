@@ -1,0 +1,33 @@
+{
+  "id": "__ID__",
+  "title": "__TITLE__",
+  "description": "<p>A starter module showing settings, a settings menu, hooks, sockets, queries and a public API.</p>",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "authors": [
+    { "name": "__AUTHOR__" }
+  ],
+  "esmodules": ["scripts/main.mjs"],
+  "styles": [
+    { "src": "styles/__ID__.css", "layer": "modules" }
+  ],
+  "languages": [
+    { "lang": "en", "name": "English", "path": "lang/en.json" }
+  ],
+  "relationships": {
+    "systems": [],
+    "requires": [],
+    "recommends": [],
+    "conflicts": []
+  },
+  "socket": true,
+  "flags": {
+    "hotReload": {
+      "extensions": ["css", "hbs", "json"],
+      "paths": ["styles", "templates", "lang"]
+    }
+  }
+}

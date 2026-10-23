@@ -1,0 +1,8 @@
+schema_version: "1.1"
+name: new-dice-pool-system
+expected_outcome: |
+  A complete Foundry v13/v14 system in ./ember-ash using documentTypes + TypeDataModels (no template.json),
+  ApplicationV2-based sheets (HandlebarsApplicationMixin + ActorSheetV2/ItemSheetV2), derived max HP computed in
+  prepareDerivedData (character: might*3+5, npc: threat*4), skill rolls of (attribute + rating)d6 counting 5-6 as
+  successes (e.g. "Nd6cs>=5") posted to chat, and lang/en.json labels. It lints clean, boots in a v14 world, and
+  every Actor/Item subtype's sheet renders without console errors.

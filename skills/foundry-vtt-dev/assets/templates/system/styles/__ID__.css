@@ -1,0 +1,241 @@
+/*
+ * __TITLE__ styles.
+ *
+ * system.json loads this file with `"layer": "system"`, which wraps it in `@import "..." layer(system)`.
+ * Foundry's own CSS is split into layers (reset, variables, elements, blocks, applications, ..., system, modules),
+ * and `system` ranks above `applications`, so these rules win without !important or inflated specificity.
+ *
+ * Rules:
+ *  - Scope everything to `.__ID__`, a class our sheets add through DEFAULT_OPTIONS.classes.
+ *  - Use Foundry's theme variables (--color-*, --input-*, --font-size-*, --spacer-*) instead of hard-coded colors.
+ *    The light/dark theme swaps the variable values, so nothing here needs a theme-specific override.
+ */
+
+.__ID__ {
+  --__ID__-gap: var(--spacer-8, 0.5rem);
+  --__ID__-radius: 6px;
+}
+
+/* ---------------------------------------- */
+/*  Header (shared by Actor and Item sheets) */
+/* ---------------------------------------- */
+
+.__ID__ .sheet-header {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--spacer-16, 1rem);
+}
+
+.__ID__ .sheet-header .profile {
+  flex: none;
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  border-radius: var(--__ID__-radius);
+  cursor: pointer;
+}
+
+.__ID__ .header-fields {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--__ID__-gap);
+  min-width: 0;
+}
+
+.__ID__ .document-name {
+  height: auto;
+  font-size: var(--font-size-24, 1.5rem);
+}
+
+.__ID__ .resources {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: var(--__ID__-gap) var(--spacer-16, 1rem);
+}
+
+.__ID__ .resource {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-2, 2px);
+}
+
+.__ID__ .resource > label {
+  color: var(--color-form-label);
+  font-size: var(--font-size-11, 0.7rem);
+  text-transform: uppercase;
+}
+
+.__ID__ .resource .form-fields {
+  display: flex;
+  align-items: center;
+  gap: var(--spacer-4, 0.25rem);
+}
+
+.__ID__ .resource input[type="number"] {
+  width: 4.5em;
+  text-align: center;
+}
+
+.__ID__ .hp-bar {
+  position: relative;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--color-border);
+}
+
+.__ID__ .hp-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--pct, 0%);
+  background: var(--color-level-success);
+}
+
+.__ID__ .type-label {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-13, 0.8rem);
+}
+
+/* ---------------------------------------- */
+/*  Tabs                                     */
+/* ---------------------------------------- */
+
+/* Core styles nav.tabs and `.tab:not(.active) {display: none}`; we only make the active panel scroll. */
+.__ID__ .window-content > .tab {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* ---------------------------------------- */
+/*  Stats tab                                */
+/* ---------------------------------------- */
+
+.__ID__ .ability-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--spacer-16, 1rem);
+}
+
+.__ID__ .ability {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacer-4, 0.25rem);
+  padding: var(--__ID__-gap);
+  border: 1px solid var(--color-border);
+  border-radius: var(--__ID__-radius);
+}
+
+.__ID__ .ability > label {
+  color: var(--color-form-label);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.__ID__ .ability input[type="number"] {
+  width: 4em;
+  text-align: center;
+  font-size: var(--font-size-20, 1.25rem);
+}
+
+.__ID__ .ability .roll,
+.__ID__ .sheet-header .roll {
+  width: auto;
+  gap: var(--spacer-4, 0.25rem);
+}
+
+.__ID__ .derived {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacer-16, 1rem);
+  margin: 0;
+}
+
+.__ID__ .derived > div {
+  display: flex;
+  gap: var(--__ID__-gap);
+}
+
+.__ID__ .derived dt {
+  color: var(--color-form-label);
+}
+
+.__ID__ .derived dd {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* ---------------------------------------- */
+/*  Items tab                                */
+/* ---------------------------------------- */
+
+.__ID__ .item-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.__ID__ .item-list > li {
+  display: grid;
+  grid-template-columns: 28px 1fr auto auto;
+  align-items: center;
+  gap: var(--__ID__-gap);
+  padding: var(--spacer-4, 0.25rem);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.__ID__ .item-list > li:last-child {
+  border-bottom: 0;
+}
+
+.__ID__ .item-list > li.empty {
+  display: block;
+  color: var(--color-text-subtle);
+  font-style: italic;
+}
+
+.__ID__ .item-img {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border: 0;
+  border-radius: 3px;
+}
+
+.__ID__ .item-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.__ID__ .item-quantity,
+.__ID__ .item-category {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-12, 0.75rem);
+}
+
+.__ID__ .item-controls {
+  display: flex;
+  min-width: 24px;
+  justify-content: end;
+}
+
+.__ID__ .item-group > button.create {
+  align-self: flex-start;
+}
+
+/* ---------------------------------------- */
+/*  Rich text                                */
+/* ---------------------------------------- */
+
+.__ID__ prose-mirror {
+  --min-height: 240px;
+}

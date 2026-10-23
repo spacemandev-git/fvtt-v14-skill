@@ -1,0 +1,12 @@
+{
+  "name": "foundry-vtt-dev",
+  "version": "1.0.0",
+  "description": "Build, port, debug and test Foundry VTT v13/v14 game systems and modules: distilled API references, a scaffolder, a version-aware linter, a source lookup tool, and a headless Foundry + Playwright test harness.",
+  "author": {
+    "name": "spacemandev-git",
+    "url": "https://github.com/spacemandev-git"
+  },
+  "homepage": "https://github.com/spacemandev-git/fvtt-v14-skill",
+  "repository": "https://github.com/spacemandev-git/fvtt-v14-skill",
+  "keywords": ["foundry-vtt", "foundryvtt", "fvtt", "ttrpg", "game-system", "module", "skill", "playwright"]
+}

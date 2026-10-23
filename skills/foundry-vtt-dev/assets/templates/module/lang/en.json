@@ -1,0 +1,29 @@
+{
+  "__PREFIX__": {
+    "Settings": {
+      "ShowRollBadge": {
+        "Name": "Show Roll Badge",
+        "Hint": "Add a small d20 icon to roll messages in the chat log. This setting only affects you."
+      }
+    },
+    "Menu": {
+      "Name": "__TITLE__ Settings",
+      "Label": "Configure",
+      "Hint": "Open the settings menu for __TITLE__.",
+      "Title": "__TITLE__ Settings",
+      "Greeting": {
+        "Name": "Greeting",
+        "Hint": "A message GMs can broadcast to every connected player. Leave blank to use the default."
+      }
+    },
+    "Greeting": {
+      "Default": "Hello from __TITLE__!"
+    },
+    "Chat": {
+      "RollBadge": "Roll"
+    },
+    "Query": {
+      "NoGM": "No GM is connected."
+    }
+  }
+}
